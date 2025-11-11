@@ -9,6 +9,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import FeedOutlinedIcon from "@mui/icons-material/FeedOutlined";
+import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 
 export const Header = ({ loaderData }) => {
   const avatarContext = useContext(AvatarContext);
@@ -28,7 +29,7 @@ export const Header = ({ loaderData }) => {
         </span>
       </div>
       {/* Menu items */}
-      <div className="px-5 flex-1">
+      <div className="px-5 pt-10 flex-1">
         <div className="flex flex-col gap-y-3">
           <Link to="/">
             <div
@@ -85,7 +86,7 @@ export const Header = ({ loaderData }) => {
               <FeedOutlinedIcon /> Posts
             </div>
           </Link>
-          <Link to="/">
+          <Link to="/chats">
             <div
               className={`${styles.menuIconWrapper} ${
                 headerContext.activeMenuItem === "chats"
@@ -93,7 +94,7 @@ export const Header = ({ loaderData }) => {
                   : ""
               } flex items-center gap-x-3`}
             >
-              <MessageSquareText className={styles.menuIcon} /> Chats
+              <ChatBubbleOutlineOutlinedIcon /> Chats
             </div>
           </Link>
           <Link to="/friends">
@@ -104,7 +105,7 @@ export const Header = ({ loaderData }) => {
                   : ""
               } flex items-center gap-x-3`}
             >
-              <Users className={styles.menuIcon} /> Friends
+              <Users /> Friends
             </div>
           </Link>
         </div>

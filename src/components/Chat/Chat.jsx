@@ -8,7 +8,7 @@ import ChatWindow from "./ConversationRoom/ChatWindow";
 import api from "../../api";
 import styles from "./ConversationRoom/ChatBody.module.css";
 
-function Home(props) {
+function Chat(props) {
   const loaderData = useLoaderData();
 
   const [contacts, setContacts] = useState([]);
@@ -258,4 +258,4 @@ function Home(props) {
   );
 }
 
-export default Home;
+export default Chat;

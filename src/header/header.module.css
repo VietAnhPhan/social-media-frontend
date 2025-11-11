@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .menuIconWrapper {
-  padding: 8px;
+  padding-block: 8px;
   box-sizing: content-box;
   /* border-radius: 50%; */
 }

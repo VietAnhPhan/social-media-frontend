@@ -1,12 +1,12 @@
 import { createBrowserRouter, redirect } from "react-router";
 import App from "./App";
-import Home from "./components/Home/Home";
+import Chat from "./components/Chat/Chat";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Profile from "./components/Profile/Profile";
 import { UserContext } from "./Context";
 import Setting from "./components/Setting";
-import Friend from "./components/Home/Friend/Friend";
+import Friend from "./components/Chat/Friend/Friend";
 import Wrapper from "./components/Wrapper";
 import api from "./api";
 
@@ -22,7 +22,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         loader: homeLoader,
-        element: <Home sitename={sitename} />,
+        element: <Chat sitename={sitename} />,
+      },
+      {
+        path: "/chats",
+        loader: homeLoader,
+        element: <Chat sitename={sitename} />,
       },
 
       {

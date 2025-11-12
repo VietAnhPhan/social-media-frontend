@@ -10,6 +10,7 @@ import Friend from "./components/Chat/Friend/Friend";
 import Wrapper from "./components/Wrapper";
 import api from "./api";
 import Home from "./components/Home/Home";
+import Search from "./components/Search/Search";
 
 const sitename = "Myinterests";
 
@@ -54,6 +55,15 @@ const router = createBrowserRouter([
         element: (
           <Wrapper>
             <Friend sitename={sitename} />
+          </Wrapper>
+        ),
+      },
+         {
+        path: "/search",
+        loader: friendsLoader,
+        element: (
+          <Wrapper>
+            <Search sitename={sitename} />
           </Wrapper>
         ),
       },

@@ -21,7 +21,7 @@ function App() {
     <>
       <AvatarContext value={{ avatarPath, setavatarPath }}>
         <HeaderContext value={{ activeMenuItem, setactiveMenuItem }}>
-          <div className="flex flex-col-reverse md:flex-row h-full dark:bg-slate-900">
+          <div className="flex flex-col-reverse md:flex-row h-full dark:bg-slate-900 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
             <Header loaderData={loaderData}></Header>
 
             <SupabaseContext value={supabase}>

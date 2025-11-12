@@ -1,5 +1,5 @@
 const Wrapper = ({ children }) => {
-  return <div className="flex-1 p-8">{children}</div>;
+  return <div className="flex-1 py-8 container max-w-7xl mx-auto">{children}</div>;
 };
 
 export default Wrapper;

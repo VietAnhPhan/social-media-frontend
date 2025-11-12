@@ -1,6 +1,7 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import api from "../../api";
 import Post from "../Post/Post";
+import { HeaderContext } from "../../Context";
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -19,7 +20,12 @@ function Home() {
     index + col2 + col3 + col4
   );
 
+  const headerContext = useContext(HeaderContext)
+
   useEffect(() => {
+
+     headerContext.setactiveMenuItem("home");
+
     async function fetchData() {
       const posts = await api.getPosts();
       setPosts(posts);
@@ -30,7 +36,7 @@ function Home() {
 
   return (
     <>
-      <div className="flex p-7 gap-x-3 overflow-auto bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+      <div className="flex p-7 gap-x-3 overflow-auto">
         <div className="flex flex-col gap-y-3">
           {postsCol1.map((post) => (
             <div key={post.id} className="p-5 bg-white rounded-2xl">

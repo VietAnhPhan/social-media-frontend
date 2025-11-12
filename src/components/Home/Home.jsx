@@ -30,31 +30,31 @@ function Home() {
 
   return (
     <>
-      <div className="flex overflow-auto">
-        <div className="flex flex-col">
+      <div className="flex p-7 gap-x-3 overflow-auto bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+        <div className="flex flex-col gap-y-3">
           {postsCol1.map((post) => (
-            <div key={post.id}>
+            <div key={post.id} className="p-5 bg-white rounded-2xl">
               <Post author={post.author} post={post} />
             </div>
           ))}
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-y-3">
           {postsCol2.map((post) => (
-            <div key={post.id}>
+            <div key={post.id} className="p-5 bg-white rounded-2xl">
               <Post author={post.author} post={post} />
             </div>
           ))}
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-y-3">
           {postsCol3.map((post) => (
-            <div key={post.id}>
+            <div key={post.id} className="p-5 bg-white rounded-2xl">
               <Post author={post.author} post={post} />
             </div>
           ))}
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-y-3">
           {postsCol4.map((post) => (
-            <div key={post.id}>
+            <div key={post.id} className="p-5 bg-white rounded-2xl">
               <Post author={post.author} post={post} />
             </div>
           ))}

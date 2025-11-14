@@ -4,7 +4,12 @@ import { Header } from "./header/header.jsx";
 import { Outlet, useLoaderData } from "react-router";
 
 import { createClient } from "@supabase/supabase-js";
-import { AvatarContext, HeaderContext, SupabaseContext } from "./Context.js";
+import {
+  AvatarContext,
+  HeaderContext,
+  SupabaseContext,
+  UserContext,
+} from "./Context.js";
 import { useState } from "react";
 
 const supabase = createClient(
@@ -19,17 +24,19 @@ function App() {
 
   return (
     <>
-      <AvatarContext value={{ avatarPath, setavatarPath }}>
-        <HeaderContext value={{ activeMenuItem, setactiveMenuItem }}>
-          <div className="flex flex-col-reverse md:flex-row h-full dark:bg-slate-900 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
-            <Header loaderData={loaderData}></Header>
+      <UserContext value={loaderData}>
+        <AvatarContext value={{ avatarPath, setavatarPath }}>
+          <HeaderContext value={{ activeMenuItem, setactiveMenuItem }}>
+            <div className="flex flex-col-reverse md:flex-row h-full dark:bg-slate-900 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+              <Header loaderData={loaderData}></Header>
 
-            <SupabaseContext value={supabase}>
-              <Outlet></Outlet>
-            </SupabaseContext>
-          </div>
-        </HeaderContext>
-      </AvatarContext>
+              <SupabaseContext value={supabase}>
+                <Outlet></Outlet>
+              </SupabaseContext>
+            </div>
+          </HeaderContext>
+        </AvatarContext>
+      </UserContext>
     </>
   );
 }

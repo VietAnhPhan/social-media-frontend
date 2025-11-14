@@ -154,7 +154,7 @@ function Explore() {
                 <p>People</p>
                 <div className="lg:grid lg:grid-cols-2 lg:gap-x-5">
                   {people.map((person) => (
-                    <People key={person.id} user={person} />
+                    <People key={person.id} person={person}/>
                   ))}
                 </div>
               </div>

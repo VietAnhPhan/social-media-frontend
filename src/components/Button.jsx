@@ -3,7 +3,6 @@ import { useFormStatus } from "react-dom";
 function Button(props) {
   const { pending } = useFormStatus();
 
-  console.log(pending);
   return (
     <>
       <button
@@ -11,7 +10,6 @@ function Button(props) {
         onClick={props.callback}
         type={props.type ? props.type : ""}
         disabled={pending}
-        style={{ height: "-webkit-fill-available" }}
       >
         {props.icon} {pending ? props.text + "..." : props.text}
       </button>

@@ -53,10 +53,8 @@ function MyPosts() {
 
     const Post = await api.createPost(body);
 
-    console.log(Post);
-
     const updatedPosts = [...posts];
-    updatedPosts.push(Post);
+    updatedPosts.unshift(Post);
 
     setPosts(updatedPosts);
   }

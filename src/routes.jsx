@@ -15,6 +15,7 @@ import Explore from "./components/Explore/Explore";
 import MyPosts from "./components/Post/MyPosts";
 import FriendList from "./components/FriendList";
 import { ErrorCatching } from "./components/Utilities/Utilities";
+import Notifications from "./components/Notification/Notifications";
 
 const sitename = "Myinterests";
 
@@ -94,11 +95,21 @@ const router = createBrowserRouter([
             <MyPosts sitename={sitename} />
           </Wrapper>
         ),
+        errorElement: <ErrorCatching />,
         // ErrorBoundary: function ErrorBoundary() {
         //   let error = useRouteError();
         //   console.error(error);
         //   return <>Dang!</>;
         // },
+      },
+      {
+        path: "/notifications",
+        element: (
+          <Wrapper>
+            <Notifications />
+          </Wrapper>
+        ),
+        errorElement: <ErrorCatching />,
       },
     ],
   },

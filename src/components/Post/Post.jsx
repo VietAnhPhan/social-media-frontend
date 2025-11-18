@@ -18,8 +18,12 @@ function Post(props) {
   }, []);
 
   async function handleLike() {
-    await api.likePost(props.post.id);
+    const Like = await api.likePost(props.post.id);
     const likeCount = await api.getLikes(props.post.id);
+    
+    if (userContext.id !== props.authorId && Like) {
+      await api.sendNotification(props.post.authorId, "like");
+    }
     setLikeCount(likeCount.length);
   }
 
@@ -53,8 +57,12 @@ function Post(props) {
                 />
                 {/* User Info */}
                 <div>
-                  <p className="text-base font-normal">{props.author.fullname}</p>
-                  <p className="text-xs text-gray-500">@{props.author.username}</p>
+                  <p className="text-base font-normal">
+                    {props.author.fullname}
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    @{props.author.username}
+                  </p>
                 </div>
               </div>
               {/* Posted date */}
@@ -80,7 +88,7 @@ function Post(props) {
             fontSize="small"
           />
           {props.post._count.Comment}
-          <ShareOutlinedIcon fontSize="small"/>
+          <ShareOutlinedIcon fontSize="small" />
         </div>
 
         <div className="flex gap-x-3 mt-5" ref={commentRef}>

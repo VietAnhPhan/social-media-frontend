@@ -75,6 +75,17 @@ export const Header = ({ loaderData }) => {
               <NotificationsNoneOutlinedIcon /> Notifications
             </div>
           </Link>
+          <Link to="/friends">
+            <div
+              className={`${styles.menuIconWrapper} ${
+                headerContext.activeMenuItem === "friends"
+                  ? styles.activeMenuItem
+                  : ""
+              } flex items-center gap-x-3`}
+            >
+              <Users /> Friends
+            </div>
+          </Link>
           <Link to="/posts">
             <div
               className={`${styles.menuIconWrapper} ${
@@ -95,17 +106,6 @@ export const Header = ({ loaderData }) => {
               } flex items-center gap-x-3`}
             >
               <ChatBubbleOutlineOutlinedIcon /> Chats
-            </div>
-          </Link>
-          <Link to="/friends">
-            <div
-              className={`${styles.menuIconWrapper} ${
-                headerContext.activeMenuItem === "friends"
-                  ? styles.activeMenuItem
-                  : ""
-              } flex items-center gap-x-3`}
-            >
-              <Users /> Friends
             </div>
           </Link>
         </div>

@@ -6,12 +6,14 @@ import api from "../../api";
 import Avatar from "../Avatar";
 import { UserContext } from "../../Context";
 import { DateTimeString } from "../Utilities/Utilities";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 function Post(props) {
   const [likeCount, setLikeCount] = useState(props.post._count.Like);
   const userContext = useContext(UserContext);
   const [comments, setComments] = useState(props.post.Comment);
   const commentRef = useRef(null);
+  const isLiked = checkIsLiked(props.post.Like, userContext.id);
 
   useEffect(() => {
     commentRef.current.classList.add("hidden");
@@ -20,7 +22,7 @@ function Post(props) {
   async function handleLike() {
     const Like = await api.likePost(props.post.id);
     const likeCount = await api.getLikes(props.post.id);
-    
+
     if (userContext.id !== props.authorId && Like) {
       await api.sendNotification(props.post.authorId, "like");
     }
@@ -76,12 +78,24 @@ function Post(props) {
         </div>
 
         <div className="flex items-center gap-5 pt-3 border-t border-purple-100 mt-5">
-          <FavoriteBorderOutlinedIcon
-            className="hover:cursor-pointer hover:text-pink-700"
-            fontSize="small"
-            onClick={handleLike}
-          />
+          {!isLiked && (
+            <FavoriteBorderOutlinedIcon
+              className="hover:cursor-pointer hover:text-pink-700"
+              fontSize="small"
+              onClick={handleLike}
+            />
+          )}
+
+          {isLiked && (
+            <FavoriteIcon
+              className="hover:cursor-pointer text-pink-700"
+              fontSize="small"
+              onClick={handleLike}
+            />
+          )}
+
           {likeCount}
+          {props.Like}
           <ChatBubbleOutlineOutlinedIcon
             onClick={handleOpenComment}
             className="hover:cursor-pointer"
@@ -136,3 +150,12 @@ function Post(props) {
 }
 
 export default Post;
+
+function checkIsLiked(likes, audienceId) {
+  if (!likes) return false;
+  const hasLike = likes.filter((like) => like.audienceId === audienceId);
+  if (hasLike.length > 0) {
+    return true;
+  }
+  return false;
+}

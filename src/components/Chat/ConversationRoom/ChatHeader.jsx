@@ -33,7 +33,7 @@ const ChatHeader = ({ chatUser, controls }) => {
           <Avatar user={chatUser} type={"headerFrame"}></Avatar>
 
           <p className="dark:text-gray-50 font-semibold">
-            {chatUser && chatUser.name}
+            {chatUser && chatUser.fullname}
           </p>
         </div>
       </div>

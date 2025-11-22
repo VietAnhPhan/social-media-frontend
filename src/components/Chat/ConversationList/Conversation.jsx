@@ -5,7 +5,7 @@ import styles from "./Conversation.module.css";
 
 const Conversation = ({ conversation }) => {
   const userContext = useContext(UserContext);
-  const chatUser = getChatUser(conversation.ChatMember, userContext.id);
+  const chatUser = getChatUser(conversation.Participant, userContext.id);
   const isSeen = getLastMessage(conversation).isSeen;
   const chatUserId = getLastMessage(conversation).userId;
 
@@ -44,16 +44,20 @@ const Conversation = ({ conversation }) => {
             <p
               className={`text-base font-medium dark:text-slate-50 ${
                 !isSeen &&
+                chatUser &&
                 chatUser.id === chatUserId &&
                 styles.userIncomingMessage
               }`}
             >
-              {chatUser.name}
+              {chatUser && chatUser.fullname}
             </p>
             {/* Last sent message */}
             <p
               className={`text-sm dark:text-zinc-400 ${
-                !isSeen && chatUser.id === chatUserId && styles.incomingMessage
+                !isSeen &&
+                chatUser &&
+                chatUser.id === chatUserId &&
+                styles.incomingMessage
               }`}
             >
               {conversation.messages[conversation.messages.length - 1].message}
@@ -66,6 +70,7 @@ const Conversation = ({ conversation }) => {
           <p
             className={`dark:text-zinc-400 text-sm ${
               !isSeen &&
+              chatUser &&
               chatUser.id === chatUserId &&
               styles.dateIncomingMessage
             }`}
@@ -73,7 +78,7 @@ const Conversation = ({ conversation }) => {
             {lastTimeFortmat}
           </p>
           {/* Indicated incomming message circle */}
-          {!isSeen && chatUser.id === chatUserId && (
+          {!isSeen && chatUser && chatUser.id === chatUserId && (
             <span className={styles.circleIncomingMessage}></span>
           )}
         </div>
@@ -84,12 +89,14 @@ const Conversation = ({ conversation }) => {
 
 export default Conversation;
 
-function getChatUser(chatMembers, authId) {
-  const chatMember = chatMembers.filter((chatMember) => {
-    return chatMember.user.id !== authId;
+function getChatUser(participants, authId) {
+  if (participants.length === 0) return null;
+
+  const Participant = participants.filter((participant) => {
+    return participant.user.id !== authId;
   });
 
-  return chatMember[0].user;
+  return Participant[0].user;
 }
 
 function getLastMessage(conversation) {

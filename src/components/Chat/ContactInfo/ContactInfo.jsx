@@ -75,7 +75,7 @@ const ContactInfo = ({ currentContact }) => {
   }
 
   return (
-    <div className="border-l-[1px] border-l-zinc-300 dark:border-l-slate-700 py-4 px-6 gap-x-4 dark:bg-slate-900 z-10">
+    <div className="bg-white rounded-xl border-2 border-blue-200 dark:border-l-slate-700 py-4 px-6 gap-x-4 dark:bg-slate-900 z-10">
       <p className="dark:text-gray-50">Contact info</p>
       <div className="flex justify-center mt-10">
         <div className="flex flex-col items-center">

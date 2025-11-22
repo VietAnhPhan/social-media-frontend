@@ -7,6 +7,8 @@ import { ConversationContext, HeaderContext, UserContext } from "../../Context";
 import ChatWindow from "./ConversationRoom/ChatWindow";
 import api from "../../api";
 import styles from "./ConversationRoom/ChatBody.module.css";
+import Heading1 from "../Heading/Heading1";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 function Chat(props) {
   const loaderData = useLoaderData();
@@ -54,7 +56,7 @@ function Chat(props) {
       return;
     }
 
-    const contacts = await api.getSearchContact(e.target.value);
+    const contacts = await api.getSearchPeople(e.target.value);
     setContacts(contacts);
   }
 
@@ -86,20 +88,23 @@ function Chat(props) {
         value={{ currentConversation, setCurrentConversation }}
       >
         <title>{`Conversations | ${props.sitename}`}</title>
-        <div className="grid md:grid-cols-[30%_45%_25%] h-full flex-1">
+        <Heading1 text="Messages" />
+        <p className="mt-3">Chat with your friends</p>
+        <div className="grid md:grid-cols-[30%_45%_25%] h-full flex-1 mt-7 gap-x-5">
           {/* Column 1*/}
           {isConversationList && (
-            <div className="md:col-span-1 md:flex flex-col border-r-[1px] border-r-zinc-300 dark:border-r-slate-700 dark:bg-slate-900 z-10 overflow-auto">
+            <div className="md:col-span-1 md:flex flex-col dark:border-r-slate-700 dark:bg-slate-900 z-10 overflow-auto bg-white rounded-xl border-purple-200 border-2">
               {/* Profile header*/}
-              <div className="px-4">
-                <img
+              <div className="p-4 relative">
+                {/* <img
                   src="/logo-1024x200.png"
                   alt=""
                   className="w-52 pt-3 pb-4"
-                />
+                /> */}
+                <SearchOutlinedIcon className="left-7 absolute top-1/2 -translate-y-1/2 text-gray-700" fontSize="small"/>
                 <input
                   type="text"
-                  className="w-full col-span-1 p-2 border-0 bg-[#EDEDED] rounded-2xl mb-4"
+                  className="pl-10 w-full col-span-1 p-2 border-0 bg-[#EDEDED] rounded-xl text-sm"
                   placeholder="Search contacts..."
                   // value={searchContact}
                   onChange={handleSearch}
@@ -237,7 +242,7 @@ function Chat(props) {
                 isOpenContactInfo ? "col-span-1" : "col-span-2"
               } row-span-1 flex flex-col overflow-auto ${
                 styles.backgroundColor
-              } relative`}
+              } relative rounded-xl border-pink-200 border-2`}
             >
               <ChatWindow
                 chatUser={chatUser}

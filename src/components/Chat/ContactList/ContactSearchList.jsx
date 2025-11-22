@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../../../Context";
 import api from "../../../api";
+import Avatar from "../../Avatar";
 
 const ContactSearchList = ({ contacts }) => {
   const userContext = useContext(UserContext);
@@ -29,14 +30,19 @@ const ContactSearchList = ({ contacts }) => {
           <div
             onClick={() => handleSelect(contact)}
             key={contact.id}
-            className="p-4 hover:bg-slate-800"
+            className="p-4 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50"
           >
-            <p className="text-base font-medium dark:text-slate-50">
-              {contact.username}
-            </p>
-            <p className="text-sm dark:text-zinc-400 font-medium">
-              {contact.fullname}
-            </p>
+            <div className="flex gap-x-3">
+              <Avatar user={contact} type="chatFrame" />
+              <div>
+                <p className="text-base dark:text-zinc-400 font-medium">
+                  {contact.fullname}
+                </p>
+                <p className="text-sm font-medium text-zinc-500 dark:text-slate-50">
+                  @{contact.username}
+                </p>
+              </div>
+            </div>
           </div>
         );
       })}

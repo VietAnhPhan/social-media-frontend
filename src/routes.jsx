@@ -39,7 +39,12 @@ const router = createBrowserRouter([
       {
         path: "/chats",
         loader: homeLoader,
-        element: <Chat sitename={sitename} />,
+        element: (
+          <Wrapper>
+            <Chat sitename={sitename} />
+          </Wrapper>
+        ),
+        errorElement: <ErrorCatching />,
       },
 
       {

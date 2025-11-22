@@ -1,4 +1,3 @@
-import { MessageSquareText, Users, Settings } from "lucide-react";
 import styles from "./header.module.css";
 
 import { Link } from "react-router";
@@ -10,8 +9,8 @@ import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import FeedOutlinedIcon from "@mui/icons-material/FeedOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
-import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
 export const Header = ({ loaderData }) => {
   const avatarContext = useContext(AvatarContext);

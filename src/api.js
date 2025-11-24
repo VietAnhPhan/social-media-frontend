@@ -449,7 +449,7 @@ const api = {
   updateProfile: async (authId, userData) => {
     try {
       const response = await fetch(`${serverURL}/users/${authId}`, {
-        method: "PUT",
+        method: "PATCH",
         body: JSON.stringify(userData),
         headers: {
           "Content-type": "application/json",
@@ -464,7 +464,7 @@ const api = {
       const result = await response.json();
       return result;
     } catch (err) {
-      console.log(err);
+      return { error: true, message: err.message };
     }
   },
 

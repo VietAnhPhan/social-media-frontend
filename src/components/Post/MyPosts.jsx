@@ -9,8 +9,10 @@ import { Button } from "../Button";
 import AddPhotoAlternateOutlinedIcon from "@mui/icons-material/AddPhotoAlternateOutlined";
 import { WarningToast } from "../Toast";
 import { HeaderContext } from "../../Context";
+import useTitle from "../hooks/useTitle";
 
 function MyPosts() {
+  useTitle("Posts");
   const [posts, setPosts] = useState([]);
   const dataLoader = useLoaderData();
   const previewPhotos = useRef(null);

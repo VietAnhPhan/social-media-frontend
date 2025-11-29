@@ -6,8 +6,10 @@ import api from "../../api";
 import Heading1 from "../Heading/Heading1";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import useTitle from "../hooks/useTitle";
 
 const Profile = (props) => {
+  useTitle("Profile");
   const loaderData = useLoaderData();
 
   const [password, setPassword] = useState("");
@@ -129,8 +131,6 @@ const Profile = (props) => {
 
   return (
     <>
-      <title>{`Profile | ${props.sitename}`}</title>
-
       <Heading1 text="Profile" />
       <p className="mt-3">Manage your profile and personal information</p>
       {isLoading && <p>Saving...</p>}

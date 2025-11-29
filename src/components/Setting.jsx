@@ -2,8 +2,10 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { HeaderContext } from "../Context";
 import { Settings } from "lucide-react";
+import useTitle from "./hooks/useTitle";
 
 const Setting = (props) => {
+  useTitle("Settings");
   const navigate = useNavigate();
 
   const headerContext = useContext(HeaderContext);
@@ -19,7 +21,6 @@ const Setting = (props) => {
   }
   return (
     <>
-      <title>{`Settings | ${props.sitename}`}</title>
       <div className="md:grid md:grid-cols-3 flex-1 overflow-y-auto h-full">
         <div className="flex col-span-1 flex-col gap-y-4 border-r border-r-slate-700">
           <p className="text-2xl">Settings</p>

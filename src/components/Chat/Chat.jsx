@@ -9,8 +9,10 @@ import api from "../../api";
 import styles from "./ConversationRoom/ChatBody.module.css";
 import Heading1 from "../Heading/Heading1";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import useTitle from "../hooks/useTitle";
 
 function Chat(props) {
+  useTitle("Chats");
   const loaderData = useLoaderData();
 
   const [contacts, setContacts] = useState([]);
@@ -87,7 +89,6 @@ function Chat(props) {
       <ConversationContext
         value={{ currentConversation, setCurrentConversation }}
       >
-        <title>{`Conversations | ${props.sitename}`}</title>
         <div className="flex flex-col h-full">
           <Heading1 text="Messages" />
           <p className="mt-3">Chat with your friends</p>
@@ -102,7 +103,10 @@ function Chat(props) {
                     alt=""
                     className="w-52 pt-3 pb-4"
                   /> */}
-                  <SearchOutlinedIcon className="left-7 absolute top-1/2 -translate-y-1/2 text-gray-700" fontSize="small"/>
+                  <SearchOutlinedIcon
+                    className="left-7 absolute top-1/2 -translate-y-1/2 text-gray-700"
+                    fontSize="small"
+                  />
                   <input
                     type="text"
                     className="pl-10 w-full col-span-1 p-2 border-0 bg-[#EDEDED] rounded-xl text-sm"

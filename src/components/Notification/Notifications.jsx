@@ -4,8 +4,10 @@ import api from "../../api";
 import LikeNotification from "./LikeNotification";
 import { ContentWrapper } from "../Utilities/Utilities";
 import { HeaderContext } from "../../Context";
+import useTitle from "../hooks/useTitle";
 
 function Notifications() {
+  useTitle("Notifications");
   const [notifications, setNotifications] = useState([]);
   const headerContext = useContext(HeaderContext);
 

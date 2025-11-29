@@ -10,8 +10,10 @@ import Post from "../Post/Post";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 import TagOutlinedIcon from "@mui/icons-material/TagOutlined";
 import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
+import useTitle from "../hooks/useTitle";
 
 function Explore() {
+  useTitle("Explore");
   const headerContext = useContext(HeaderContext);
   const inputRef = useRef(null);
   const [people, setPeople] = useState([]);

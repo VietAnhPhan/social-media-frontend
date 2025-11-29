@@ -4,8 +4,10 @@ import { ContentWrapper } from "./Utilities/Utilities";
 import api from "../api";
 import { HeaderContext, UserContext } from "../Context";
 import Following from "./People/Following";
+import useTitle from "./hooks/useTitle";
 
 function FriendList() {
+  useTitle("Friends");
   const [activeTab, setActiveTab] = useState("Followers");
   const [followings, setFollowings] = useState([]);
   const [followers, setFollowers] = useState([]);

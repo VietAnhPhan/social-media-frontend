@@ -8,8 +8,10 @@ import People from "../People/People";
 import { Button } from "../Button";
 import Post from "../Post/Post";
 import { WarningToast } from "../Toast";
+import useTitle from "../hooks/useTitle";
 
 function Search() {
+  useTitle("Search");
   const headerContext = useContext(HeaderContext);
   const inputRef = useRef(null);
   const [people, setPeople] = useState([]);

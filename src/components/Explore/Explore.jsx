@@ -26,7 +26,7 @@ function Explore() {
   useEffect(() => {
     async function fetchData() {
       const topPeople = await api.getTopPeople();
-      const trendingPosts = await api.getTrendingPosts();
+      const trendingPosts = await api.post.getTrendingPosts();
 
       setPeople(topPeople);
       setPosts(trendingPosts);
@@ -42,7 +42,7 @@ function Explore() {
     if (searchTerm == "") return;
 
     const searchedPeople = await api.getSearchPeople(searchTerm);
-    const searchedPosts = await api.getSearchedPosts(searchTerm);
+    const searchedPosts = await api.post.getSearchedPosts(searchTerm);
 
     setPeople(searchedPeople);
     setPosts(searchedPosts);

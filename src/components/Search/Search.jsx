@@ -36,7 +36,7 @@ function Search() {
     }
 
     const searchedPeople = await api.getSearchPeople(searchTerm);
-    const searchedPosts = await api.getSearchedPosts(searchTerm);
+    const searchedPosts = await api.post.getSearchedPosts(searchTerm);
 
     setPeople(searchedPeople);
     setPosts(searchedPosts);

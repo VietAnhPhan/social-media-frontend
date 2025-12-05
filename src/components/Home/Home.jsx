@@ -15,7 +15,7 @@ function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const posts = await api.getPosts();
+      const posts = await api.post.getPosts();
       setPosts(posts);
       headerContext.setactiveMenuItem("home");
     }

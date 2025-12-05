@@ -24,7 +24,7 @@ function MyPosts() {
 
   useEffect(() => {
     async function fetchData() {
-      const myPosts = await api.getPostsByUsername(dataLoader.username);
+      const myPosts = await api.post.getPostsByUsername(dataLoader.username);
       setPosts(myPosts);
       headerContext.setactiveMenuItem("posts");
     }
@@ -61,7 +61,7 @@ function MyPosts() {
       return;
     }
 
-    const Post = await api.createPost(body);
+    const Post = await api.post.createPost(body);
 
     const postMedias = [];
 
@@ -86,7 +86,7 @@ function MyPosts() {
     }
 
     if (postMedias.length > 0) {
-      const media = await api.createPostMedias(postMedias);
+      const media = await api.post.createPostMedias(postMedias);
       console.log(media);
     }
 

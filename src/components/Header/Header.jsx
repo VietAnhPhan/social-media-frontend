@@ -1,8 +1,8 @@
-import styles from "./header.module.css";
+import styles from "./Header.module.css";
 
 import { Link } from "react-router";
 import { useContext } from "react";
-import { AvatarContext, HeaderContext } from "../Context";
+import { AvatarContext, HeaderContext } from "../../Context";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";

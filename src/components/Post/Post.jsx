@@ -21,8 +21,8 @@ function Post(props) {
   }, []);
 
   async function handleLike() {
-    const Like = await api.likePost(props.post.id);
-    const likeCount = await api.getLikes(props.post.id);
+    const Like = await api.post.likePost(props.post.id);
+    const likeCount = await api.post.getLikes(props.post.id);
 
     if (userContext.id !== props.authorId && Like) {
       await api.sendNotification(props.post.authorId, "like");
@@ -38,7 +38,7 @@ function Post(props) {
 
   async function handleSubmitComment(formData) {
     const sentComment = formData.get("comment");
-    const Comment = await api.commentOnPost(props.post.id, sentComment);
+    const Comment = await api.post.commentOnPost(props.post.id, sentComment);
     const updatedComments = [...comments];
     updatedComments.push(Comment);
     setComments(updatedComments);

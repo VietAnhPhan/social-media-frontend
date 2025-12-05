@@ -483,70 +483,7 @@ const useAPI = () => {
       return `${serverURL}/auth/github`;
     },
 
-    likePost: async (postId) => {
-      try {
-        const response = await fetch(`${serverURL}/likes`, {
-          method: "POST",
-          body: JSON.stringify({ postId }),
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `bearer ${getToken()}`,
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-
-        const result = await response.json();
-        return result;
-      } catch (err) {
-        console.log(err);
-      }
-    },
-
-    getLikes: async (postId) => {
-      try {
-        const response = await fetch(`${serverURL}/likes/posts/${postId}`, {
-          method: "GET",
-
-          headers: {
-            Authorization: `bearer ${getToken()}`,
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-
-        const result = await response.json();
-        return result;
-      } catch (err) {
-        console.log(err);
-      }
-    },
-
-    commentOnPost: async (postId, comment) => {
-      try {
-        const response = await fetch(`${serverURL}/comments`, {
-          method: "POST",
-          body: JSON.stringify({ postId, comment }),
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `bearer ${getToken()}`,
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-
-        const result = await response.json();
-        return result;
-      } catch (err) {
-        console.log(err);
-      }
-    },
+    
 
     sendNotification: async (currentUserId, type) => {
       try {

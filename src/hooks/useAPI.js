@@ -19,16 +19,16 @@ const useAPI = () => {
     return access ? access.token : "";
   }
   return {
-    conversation: conversationAPI(),
+    conversation: conversationAPI(serverURL, getToken),
     people: peopleAPI(serverURL, getToken),
-    user: userAPI(),
+    user: userAPI(serverURL, getToken),
     friendRequest: friendRequestAPI(serverURL, getToken),
     auth: authAPI(serverURL),
-    friend: friendAPI(),
-    message: messageAPI(),
+    friend: friendAPI(serverURL, getToken),
+    message: messageAPI(serverURL, getToken),
     post: postAPI(serverURL, getToken),
     follow: followAPI(serverURL, getToken),
-    notification: notificationAPI(),
+    notification: notificationAPI(serverURL, getToken),
   };
 };
 

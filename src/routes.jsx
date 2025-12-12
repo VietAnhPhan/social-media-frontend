@@ -15,6 +15,14 @@ import { ErrorCatching } from "./components/utilities/Utilities";
 import Notifications from "./components/Notification/Notifications";
 import HydrationLoader from "./components/utilities/loader/HydrationLoader";
 import { Home } from "./pages/Home";
+import ExplorePage from "./pages/ExplorePage";
+import SearchPage from "./pages/SearchPage";
+import NotificationsPage from "./pages/NotificationsPage";
+import ChatPages from "./pages/ChatsPage";
+import ProfilePage from "./pages/ProfilePage";
+import SettingsPage from "./pages/SettingsPage";
+import FriendsPage from "./pages/FriendsPage";
+import PostsPage from "./pages/PostsPage";
 
 const sitename = "Gotoplaces";
 
@@ -33,7 +41,7 @@ const router = createBrowserRouter([
         path: "/chats",
         middleware: [authMiddleware],
         loader: chatLoader,
-        element: <Chat sitename={sitename} />,
+        element: <ChatPages />,
         errorElement: <ErrorCatching />,
       },
 
@@ -41,45 +49,45 @@ const router = createBrowserRouter([
         path: "/profile",
         middleware: [authMiddleware],
         loader: getUser,
-        element: <Profile sitename={sitename} />,
+        element: <ProfilePage />,
         errorElement: <ErrorCatching />,
       },
       {
         path: "/settings",
         middleware: [authMiddleware],
         loader: getUser,
-        element: <Setting sitename={sitename} />,
+        element: <SettingsPage />,
       },
       {
         path: "/friends",
         middleware: [authMiddleware],
         loader: getUser,
-        element: <FriendList sitename={sitename} />,
+        element: <FriendsPage />,
       },
       {
         path: "/search",
-        element: <Search sitename={sitename} />,
+        element: <SearchPage />,
         errorElement: <ErrorCatching />,
       },
       {
         path: "/explore",
         middleware: [authMiddleware],
         loader: getUser,
-        element: <Explore sitename={sitename} />,
+        element: <ExplorePage />,
         errorElement: <ErrorCatching />,
       },
       {
         path: "/posts",
         middleware: [authMiddleware],
         loader: getUser,
-        element: <MyPosts sitename={sitename} />,
+        element: <PostsPage />,
         errorElement: <ErrorCatching />,
       },
       {
         path: "/notifications",
         middleware: [authMiddleware],
         loader: getUser,
-        element: <Notifications />,
+        element: <NotificationsPage />,
         errorElement: <ErrorCatching />,
       },
     ],

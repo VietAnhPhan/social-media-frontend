@@ -23,7 +23,7 @@ const sitename = "Gotoplaces";
 const router = createBrowserRouter([
   {
     path: "",
-    loader: getUser,
+    // loader: getUser,
     element: <App></App>,
     hydrateFallbackElement: <HydrationLoader />,
     children: [

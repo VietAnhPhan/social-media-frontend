@@ -1,8 +1,6 @@
 import styles from "./Header.module.css";
 
 import { Link } from "react-router";
-import { useContext } from "react";
-import { AvatarContext, HeaderContext } from "../../Context";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
@@ -12,10 +10,13 @@ import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutline
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
+import useAuth from "../../hooks/useAuth";
+import { useContext } from "react";
+import { HeaderContext } from "../../Context";
 
-export const Header = ({ loaderData = null }) => {
+export const Header = () => {
   const headerContext = useContext(HeaderContext);
-
+  const auth = useAuth();
   return (
     <header className="flex md:flex-col bg-white md:py-8 border-r-[1px] border-r-zinc-300  z-10 w-64 shrink-0">
       {/* Logo */}
@@ -142,12 +143,12 @@ export const Header = ({ loaderData = null }) => {
                     : ""
                 } flex items-center gap-x-3`}
               >
-                {loaderData && loaderData.avatarPath ? (
+                {auth && auth.avatarPath ? (
                   <div className="w-10 h-10">
                     <img
                       className="rounded-[50%] object-cover object-top w-full h-full"
-                      src={`${loaderData.avatarPath}`}
-                      alt={`${loaderData && loaderData.name}'s avatar`}
+                      src={`${auth.avatarPath}`}
+                      alt={`${auth.name}'s avatar`}
                     />
                   </div>
                 ) : (
@@ -169,9 +170,9 @@ export const Header = ({ loaderData = null }) => {
                 )}
 
                 <div>
-                  <p>{loaderData && loaderData.fullname}</p>
+                  <p>{auth && auth.fullname}</p>
                   <p className="text-xs text-gray-500">
-                    {loaderData && <>@{loaderData.username}</>}
+                    {auth && <>@{auth.username}</>}
                   </p>
                 </div>
               </div>

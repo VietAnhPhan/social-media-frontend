@@ -1,4 +1,4 @@
-function userAPI(serverURL, getToken) {
+function userAPI(serverURL, apiToken) {
   return {
     getUser: async (username) => {
       try {
@@ -7,7 +7,7 @@ function userAPI(serverURL, getToken) {
           {
             method: "GET",
             headers: {
-              Authorization: `bearer ${getToken()}`,
+              Authorization: `bearer ${apiToken}`,
             },
           }
         );
@@ -17,7 +17,8 @@ function userAPI(serverURL, getToken) {
         }
 
         const result = await response.json();
-        result.token = getToken();
+        result.token = apiToken;
+        
         return result;
       } catch (err) {
         console.log(err);
@@ -30,7 +31,7 @@ function userAPI(serverURL, getToken) {
           body: JSON.stringify(userData),
           headers: {
             "Content-type": "application/json",
-            Authorization: `bearer ${getToken()}`,
+            Authorization: `bearer ${apiToken}`,
           },
         });
 

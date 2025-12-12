@@ -6,8 +6,6 @@ import Signup from "./components/Signup/Signup";
 import Profile from "./components/Profile/Profile";
 import { UserContext } from "./Context";
 import Setting from "./components/Setting";
-import Friend from "./components/Chat/Friend/Friend";
-import Wrapper from "./components/Wrapper";
 import api from "./api";
 import Search from "./components/Search/Search";
 import Explore from "./components/Explore/Explore";
@@ -23,7 +21,6 @@ const sitename = "Gotoplaces";
 const router = createBrowserRouter([
   {
     path: "",
-    // loader: getUser,
     element: <App></App>,
     hydrateFallbackElement: <HydrationLoader />,
     children: [
@@ -49,6 +46,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/settings",
+        middleware: [authMiddleware],
+        loader: getUser,
         element: <Setting sitename={sitename} />,
       },
       {
@@ -137,19 +136,19 @@ async function chatLoader({ context }) {
   return data;
 }
 
-async function friendsLoader() {
-  const sentRequests = await api.getSentRequest();
-  const friendList = await api.getFriends();
-  const receivingRequests = await api.getReceivingInvitations();
+// async function friendsLoader() {
+//   const sentRequests = await api.getSentRequest();
+//   const friendList = await api.getFriends();
+//   const receivingRequests = await api.getReceivingInvitations();
 
-  const friends = {
-    sentRequests,
-    friendList,
-    receivingRequests,
-  };
+//   const friends = {
+//     sentRequests,
+//     friendList,
+//     receivingRequests,
+//   };
 
-  return friends;
-}
+//   return friends;
+// }
 
 async function loginAsGuest() {
   const auth = await api.loginAsGuest();

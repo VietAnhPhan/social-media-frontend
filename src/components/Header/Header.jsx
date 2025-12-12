@@ -17,6 +17,7 @@ import { HeaderContext } from "../../Context";
 export const Header = () => {
   const headerContext = useContext(HeaderContext);
   const auth = useAuth();
+
   return (
     <header className="flex md:flex-col bg-white md:py-8 border-r-[1px] border-r-zinc-300  z-10 w-64 shrink-0">
       {/* Logo */}

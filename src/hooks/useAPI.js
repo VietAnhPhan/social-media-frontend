@@ -18,9 +18,9 @@ const useAPI = (apiToken) => {
   //   const access = JSON.parse(localStorage.getItem("myinterests_app_access"));
   //   return access ? access.token : "";
   // }
-  if (!apiToken) {
-    return { post: postAPI(serverURL, null), people: peopleAPI(serverURL) };
-  }
+  // if (!apiToken) {
+  //   return { post: postAPI(serverURL, null), people: peopleAPI(serverURL) };
+  // }
   return {
     conversation: conversationAPI(serverURL, apiToken),
     people: peopleAPI(serverURL, apiToken),

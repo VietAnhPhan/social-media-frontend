@@ -21,7 +21,7 @@ function peopleAPI(serverURL, apiToken) {
 
     getTopPeople: async () => {
       try {
-        const response = await fetch(`${serverURL}/users?top_users=true`, {
+        const response = await fetch(`${serverURL}/users?followers=highest`, {
           method: "GET",
           headers: { Authorization: `bearer ${apiToken}` },
         });

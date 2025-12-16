@@ -71,8 +71,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/explore",
-        middleware: [authMiddleware],
-        loader: getUser,
+        // middleware: [authMiddleware],
+        // loader: getUser,
         element: <ExplorePage />,
         errorElement: <ErrorCatching />,
       },

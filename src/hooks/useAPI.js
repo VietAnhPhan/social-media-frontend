@@ -19,7 +19,7 @@ const useAPI = (apiToken) => {
   //   return access ? access.token : "";
   // }
   if (!apiToken) {
-    return { post: postAPI(serverURL, null) };
+    return { post: postAPI(serverURL, null), people: peopleAPI(serverURL) };
   }
   return {
     conversation: conversationAPI(serverURL, apiToken),

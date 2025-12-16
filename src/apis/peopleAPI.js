@@ -4,7 +4,7 @@ function peopleAPI(serverURL, apiToken) {
       try {
         const response = await fetch(`${serverURL}/users?search=${search}`, {
           method: "GET",
-          headers: { Authorization: `bearer ${apiToken}` },
+          // headers: { Authorization: `bearer ${apiToken}` },
         });
 
         if (!response.ok) {

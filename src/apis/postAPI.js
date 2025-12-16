@@ -21,9 +21,27 @@ function postAPI(serverURL, apiToken) {
           console.log(err);
         }
       },
+      getSearchedPosts: async (search) => {
+        try {
+          const response = await fetch(`${serverURL}/posts?search=${search}`, {
+            method: "GET",
+            // headers: { Authorization: `bearer ${apiToken}` },
+          });
+
+          if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+          }
+
+          const result = await response.json();
+
+          return result;
+        } catch (err) {
+          console.error(err.message);
+        }
+      },
     };
   }
-  
+
   // Autheticated
   return {
     getPosts: async () => {
@@ -85,7 +103,7 @@ function postAPI(serverURL, apiToken) {
       try {
         const response = await fetch(`${serverURL}/posts?search=${search}`, {
           method: "GET",
-          headers: { Authorization: `bearer ${apiToken}` },
+          // headers: { Authorization: `bearer ${apiToken}` },
         });
 
         if (!response.ok) {

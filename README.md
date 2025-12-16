@@ -17,10 +17,13 @@
 
 ## ✨ **Features**
 
-Our messaging app delivers the core functionality expected of a modern chat platform:
+Social Media Web app delivers the core functionality expected of a modern Socia Media platform:
 
+* **Comment/Like** - Interact with others posts
+* **Posting Content** - Include text and photos
+* **Following people** - Sending following requests to other people
 * 💬 **One-on-One Chat** – Private conversations between two users.
-* 🖼️ **Rich Media Support** – Send and receive images (with file size limits).
+* 🖼️ **Media Support** – Send and receive images (with file size limits).
 * 🕒 **Message History** – Persistent storage for all chat records.
 * 🔐 **User Authentication** – Secure login and registration using **JWT Auth**.
 
@@ -35,17 +38,9 @@ The app is built using a **modern, scalable architecture**.
 * **Framework:** ReactJS
 * **Styling:** Tailwind CSS / Styled Components
 
-### ⚙️ **Backend**
-
-* **Server:** Node.js (Express)
-
 ### 🌐 **API**
 
 * **Type:** RESTful API
-
-### 🗄️ **Database**
-
-* **Primary DB:** PostgreSQL
 
 ---
 
@@ -155,4 +150,4 @@ See the `LICENSE` file for more information.
 ## 📧 **Contact**
 
 **Viet Anh Phan** – [vietanhphan2810@gmail.com](mailto:vietanhphan2810@gmail.com)
-**Project Link:** [GitHub Repository](https://github.com/VietAnhPhan/top-messaging-app-front-end)
+**Project Link:** [GitHub Repository](https://github.com/vietAnhPhan/social-media-frontend/)
